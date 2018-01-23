@@ -1,12 +1,10 @@
 package smartserega;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -17,12 +15,16 @@ public class FirstTest {
 
     @BeforeClass
     public static void setup() {
-        System.setProperty("webdriver.chrome.driver", "chromedriver");
+/*        System.setProperty("webdriver.chrome.driver", "chromedriver");
+        driver = new ChromeDriver();*/
+
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://google.com");
     }
+
     @Test
     public void userLogin() {
        /* ТУТ НЕ МОЙ АВТОТЕСТ НАЧИНАЕНТСЯ (т.е. селекторы и прочье не моё),
@@ -40,6 +42,7 @@ public class FirstTest {
         String mailUser = profileUser.getText();
         Assert.assertEquals("autotestorgua@ukr.net", mailUser);*/
     }
+
     @AfterClass
     public static void tearDown() {
         /*WebElement menuUser = driver.findElement(By.cssSelector(".login-button__menu-icon"));
