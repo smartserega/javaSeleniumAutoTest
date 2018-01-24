@@ -15,4 +15,9 @@ public class HomePage {
         return this;
     }
 
+    public HomePage enterStationInDestinationField(String destinationStation) {
+        $("[name=\"schedule_station_to\"]").sendKeys(destinationStation);
+        return this;
+    }
+
 }

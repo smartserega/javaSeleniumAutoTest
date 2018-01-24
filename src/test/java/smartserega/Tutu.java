@@ -13,7 +13,10 @@ public class Tutu extends BaseTest {
         new HomePage()
                 .navigateToUrl()
                 .enterStationInDepartureField("Петровско-Разумовская");
+                .enterStationInDestinationField("Тверь");
         Selenide.sleep(5000);
     }
+
+
 
 }
