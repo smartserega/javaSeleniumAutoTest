@@ -1,5 +1,7 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -20,12 +22,15 @@ public class HomePage {
         return this;
     }
 
-
-    public HomePage clickSearchButton(String SearchButton) {
-        $("[name=\"inner_wrapper\"]").sendKeys(SearchButton);
+    public HomePage clickSearchButton() {
+        $("[name=\"inner_wrapper\"]").click();
         return this;
     }
 
-
-
+    public HomePage clickOnTrainTab(String text) {
+        $(".tab_etrain").click();
+        $(".tab_etrain").shouldHave(Condition.text(text));
+        System.out.print($(".tab_etrain").getText());
+        return this;
+    }
 }
