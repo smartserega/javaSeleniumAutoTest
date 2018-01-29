@@ -20,4 +20,12 @@ public class HomePage {
         return this;
     }
 
+
+    public HomePage clickSearchButton(String SearchButton) {
+        $("[name=\"inner_wrapper\"]").sendKeys(SearchButton);
+        return this;
+    }
+
+
+
 }

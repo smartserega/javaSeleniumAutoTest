@@ -12,10 +12,12 @@ public class Tutu extends BaseTest {
     public void tutuTest() throws InterruptedException {
         new HomePage()
                 .navigateToUrl()
-                .enterStationInDepartureField("Петровско-Разумовская")
-                .sleep
-                .enterStationInDestinationField("Тверь");
+                .enterStationInDepartureField("Петровско-Разумовская");
         Selenide.sleep(5000);
+        new HomePage()
+                .enterStationInDestinationField("Тверь")
+                .clickSearchButton(SearchButton);
+
     }
 
 }
