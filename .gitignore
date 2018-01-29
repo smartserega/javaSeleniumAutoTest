@@ -1,3 +1,4 @@
 .idea
 javaautotest.iml
 /target
+build/
