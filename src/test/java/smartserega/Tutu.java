@@ -13,9 +13,21 @@ public class Tutu extends BaseTest {
         new HomePage()
                 .navigateToUrl()
                 .clickOnTrainTab("Электрички");
-/*                .enterStationInDepartureField("Петровско-Разумовская")
+        Selenide.sleep(5000);
+
+        new HomePage()
+                .enterStationInDepartureField("Петровско-Разумовская");
+        Selenide.sleep(5000);
+
+        new HomePage()
                 .enterStationInDestinationField("Тверь")
-                .clickSearchButton();*/
+                .clickSearchButton();
+        Selenide.sleep(5000);
+
+        new HomePage()
+                .clickonSceduleButton("Показать расписание");
+        Selenide.sleep(5000);
+
     }
 
 }

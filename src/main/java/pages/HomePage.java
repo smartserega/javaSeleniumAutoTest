@@ -7,18 +7,24 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class HomePage {
 
-    public HomePage enterStationInDepartureField(String departureStation) {
-        $("[name=\"schedule_station_from\"]").sendKeys(departureStation);
-        return this;
-    }
 
     public HomePage navigateToUrl() {
         open("https://www.tutu.ru/");
         return this;
     }
 
+    public HomePage clickOnTrainTab(String text) {
+        $(".tab_etrain").click();
+        return this;
+    }
+
     public HomePage enterStationInDestinationField(String destinationStation) {
-        $("[name=\"schedule_station_to\"]").sendKeys(destinationStation);
+        $(".input_field.j-station_input.j-station_input_from[placeholder='Откуда']").sendKeys(destinationStation);
+        return this;
+    }
+
+    public HomePage enterStationInDepartureField(String departureStation) {
+        $(".input_field.j-station_input.j-station_input_to[placeholder='Куда']").sendKeys(departureStation);
         return this;
     }
 
@@ -27,10 +33,8 @@ public class HomePage {
         return this;
     }
 
-    public HomePage clickOnTrainTab(String text) {
-        $(".tab_etrain").click();
-        $(".tab_etrain").shouldHave(Condition.text(text));
-        System.out.print($(".tab_etrain").getText());
+    public void clickonSceduleButton(String text) {
+        $(".b-train__form__main.j-main_search_form.m-etrain").click();
         return this;
     }
 }
